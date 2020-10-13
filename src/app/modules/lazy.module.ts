@@ -9,8 +9,9 @@ import { UpdateEmployeeService } from '../services/updateemployee.service';
 import { DeleteEmployeeService } from '../services/deleteemployee.service';
 import { RouterModule } from '@angular/router';
 import { NgHttpLoaderModule } from "ng-http-loader";
+import { ConfirmationModelComponent } from '../popups/confirmation_popup/confirmation.model';
 @NgModule({
-  declarations: [EmployeeComponent],
+  declarations: [EmployeeComponent,ConfirmationModelComponent],
   imports: [
     CommonModule,
     MaterialModule,

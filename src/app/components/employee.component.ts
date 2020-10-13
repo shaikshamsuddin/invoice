@@ -15,8 +15,8 @@ import errHandling from '../config/error/errHandling';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from "@angular/material/paginator";
-
-
+import { MatDialog } from "@angular/material/dialog";
+import {ConfirmationModelComponent} from '../popups/confirmation_popup/confirmation.model';
 
 
 @Component({
@@ -51,7 +51,8 @@ export class EmployeeComponent {
       public employeeService: EmployeeService,
       public addEmployeeService: AddEmployeeService,
       public updateEmployeeService: UpdateEmployeeService,
-      public deleteEmployeeService: DeleteEmployeeService
+      public deleteEmployeeService: DeleteEmployeeService,
+      public dialog:MatDialog
     ) {}
 
     ngOnInit() {
@@ -64,16 +65,17 @@ export class EmployeeComponent {
 
     
     deleteEmp(empId){
-      this.deleteEmployeeService.deleteEmployee({"empId":empId})
-          .subscribe((posRes)=>{
-              if(posRes.delete == "success"){
-                  let matched_index = this.records.findIndex((element,index)=>{
-                      return element.empId == empId;
-                  });
-                  this.records.splice(matched_index,1);
-                  this.dataSource = new MatTableDataSource(this.records);
-              }
-        },errHandling)
+      this.dialog.open(ConfirmationModelComponent);
+      // this.deleteEmployeeService.deleteEmployee({"empId":empId})
+      //     .subscribe((posRes)=>{
+      //         if(posRes.delete == "success"){
+      //             let matched_index = this.records.findIndex((element,index)=>{
+      //                 return element.empId == empId;
+      //             });
+      //             this.records.splice(matched_index,1);
+      //             this.dataSource = new MatTableDataSource(this.records);
+      //         }
+      //   },errHandling)
     };
   
 
