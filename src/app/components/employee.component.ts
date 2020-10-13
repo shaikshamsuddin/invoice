@@ -32,6 +32,10 @@ export class EmployeeComponent {
     @ViewChild(MatPaginator,{static:true})
     public _pagi:MatPaginator;
 
+
+    @ViewChild(ConfirmationModelComponent,{static:true})
+    public _popup:ConfirmationModelComponent;
+
     public dataSource: MatTableDataSource<any>;
 
     public displayedColumns: string[] = [
@@ -65,6 +69,10 @@ export class EmployeeComponent {
 
     
     deleteEmp(empId){
+      debugger;
+      this._popup.title = "Delete !!!";
+      debugger;
+      this._popup.msg = `Do you want to delete ${empId}`;
       this.dialog.open(ConfirmationModelComponent);
       // this.deleteEmployeeService.deleteEmployee({"empId":empId})
       //     .subscribe((posRes)=>{
