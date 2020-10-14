@@ -1,6 +1,6 @@
 //import Component class
 //Component class used to create the "Component"
-import { Component,ViewChild } from '@angular/core';
+import { Component,Inject,ViewChild } from '@angular/core';
 
 //import Services
 import { EmployeeService } from '../services/employee.service';
@@ -15,7 +15,7 @@ import errHandling from '../config/error/errHandling';
 
 import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator } from "@angular/material/paginator";
-import { MatDialog } from "@angular/material/dialog";
+import { MatDialog,MatDialogRef,MAT_DIALOG_DATA } from "@angular/material/dialog";
 import {ConfirmationModelComponent} from '../popups/confirmation_popup/confirmation.model';
 
 
@@ -34,7 +34,8 @@ export class EmployeeComponent {
 
 
     @ViewChild(ConfirmationModelComponent,{static:true})
-    public _popup:ConfirmationModelComponent;
+    public obj:ConfirmationModelComponent;
+
 
     public dataSource: MatTableDataSource<any>;
 
@@ -56,8 +57,10 @@ export class EmployeeComponent {
       public addEmployeeService: AddEmployeeService,
       public updateEmployeeService: UpdateEmployeeService,
       public deleteEmployeeService: DeleteEmployeeService,
-      public dialog:MatDialog
-    ) {}
+      public dialog:MatDialog 
+    ) {
+      
+    }
 
     ngOnInit() {
       this.obj1 = this.employeeService.getEmployees().subscribe((posRes) => {
@@ -67,12 +70,13 @@ export class EmployeeComponent {
       }, errHandling);
     }
 
+
+    ngAfterViewInit(){
+      
+    };
     
     deleteEmp(empId){
-      debugger;
-      this._popup.title = "Delete !!!";
-      debugger;
-      this._popup.msg = `Do you want to delete ${empId}`;
+      console.log(this.obj);
       this.dialog.open(ConfirmationModelComponent);
       // this.deleteEmployeeService.deleteEmployee({"empId":empId})
       //     .subscribe((posRes)=>{

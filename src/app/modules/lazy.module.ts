@@ -17,7 +17,8 @@ import { ConfirmationModelComponent } from '../popups/confirmation_popup/confirm
     MaterialModule,
     HttpClientModule,
     NgHttpLoaderModule.forRoot(),
-    RouterModule.forChild([{ path: "", component: EmployeeComponent }]),
+    RouterModule.forChild([{ path: "", component: EmployeeComponent },
+                           {path:"/xyz",component:ConfirmationModelComponent}]),
   ],
   providers: [
     EmployeeService,
