@@ -3,6 +3,7 @@
     <p>{{msg}}</p>
 </div>
 <div mat-dialog-actions>
-    <button mat-button (click)="cancel_data()">No</button>
-    <button mat-button (click)="delEmployee()" cdkFocusInitial>Yes</button>
+    <router-outlet></router-outlet>
+     <!-- <button mat-button (click)="cancel_data()">No</button>
+    <button mat-button (click)="delEmployee()" cdkFocusInitial>Yes</button>  -->
 </div>

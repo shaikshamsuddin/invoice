@@ -74,6 +74,10 @@ export class EmployeeComponent {
     ngAfterViewInit(){
       
     };
+
+    modal(){
+      this.dialog.open(ConfirmationModelComponent);
+    }
     
     deleteEmp(empId){
       console.log(this.obj);

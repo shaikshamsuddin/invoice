@@ -123,5 +123,8 @@
       }
     }
   },
-  "defaultProject": "employee-management-system"
+  "defaultProject": "employee-management-system",
+  "cli": {
+    "analytics": "aa7453bd-b1c9-4dd1-aeb7-2305d4d836b8"
+  }
 }

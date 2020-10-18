@@ -10,8 +10,8 @@ export class ConfirmationModelComponent implements OnInit {
   public msg: string;
   constructor(public dialogRef:MatDialogRef<ConfirmationModelComponent>,
               @Inject(MAT_DIALOG_DATA) public dialog:MatDialog) { 
-                this.title="Delete ??";
-                this.msg="Do you want to delete employee record";
+                // this.title="Delete ??";
+                // this.msg="Do you want to delete employee record";
   }
 
   ngOnInit(): void {
