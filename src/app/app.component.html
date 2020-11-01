@@ -1,1 +1,155 @@
- <router-outlet></router-outlet> 
+<mat-toolbar fxLayout="row" color="primary">
+  <button mat-icon-button (click)="opened=!opened"> <mat-icon>menu</mat-icon> </button> 
+  <span fxFlex>Dashboard</span>
+  <button mat-button *ngFor="let item of menuItems" 
+      [fxShow]="item.showOnDesktop" 
+      [fxShow.xs]="item.showOnMobile"
+      [fxShow.sm]="item.showOnTablet">
+      <mat-icon class="mr">{{item.icon}}</mat-icon>
+      {{item.label}}
+  </button>
+  <ng-container>
+      <button mat-icon-button [matMenuTriggerFor]="dropMenu">
+          <mat-icon>more_vert</mat-icon>
+      </button>
+      <mat-menu #dropMenu="matMenu">
+          <ng-container *ngFor="let item of menuItems">
+              <div [fxShow]="!item.showOnDesktop" 
+                   [fxShow.sm]="!item.showOnTablet" 
+                   [fxShow.xs]="!item.showOnMobile">
+                  <button mat-menu-item>
+                      <mat-icon class="mr">{{item.icon}}</mat-icon>
+                      {{item.label}}
+                  </button>
+                  <mat-divider></mat-divider>
+              </div>
+          </ng-container>
+      </mat-menu>
+  </ng-container>
+</mat-toolbar>
+<mat-card class="flex-main">
+
+  <mat-card-content>
+     <mat-sidenav-container  class="sidenav">
+          <mat-sidenav [(opened)]="opened" mode="side" >
+       <div class="sidenav-items">
+      <a mat-button>Home</a>
+    
+      <a mat-button> shopping_cart </a>
+      
+      <a mat-button> mail_outline</a>
+      <a mat-button> Contacts</a>
+      <a mat-button> Amount</a>
+      <a mat-button> shopping_cart </a>
+      
+      <a mat-button> mail_outline</a>
+      <a mat-button> Contacts</a>
+      <a mat-button> Amount</a><a mat-button> shopping_cart </a>
+      
+      <a mat-button> mail_outline</a>
+      <a mat-button> Contacts</a>
+      <a mat-button> Amount</a>
+      
+    </div>
+          </mat-sidenav>
+  
+     <mat-sidenav-content fxFlexFill>
+       
+        
+           <!-- <mat-card-actions align="end">
+               <button mat-raised-button color="accent">logout</button>
+          </mat-card-actions> -->
+  
+           <router-outlet></router-outlet>
+          </mat-sidenav-content>
+        </mat-sidenav-container> 
+      </mat-card-content>
+
+     <!-- Footer -->
+
+   </mat-card>
+
+   <footer  class="page-footer font-small indigo">
+
+    <!-- Footer Links -->
+    <div class="container">
+  
+      <!-- Grid row-->
+      <div class="row text-center d-flex justify-content-center pt-5 mb-3">
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">About us</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2  mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Products</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Awards</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Help</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+        <!-- Grid column -->
+        <div class="col-md-2 mb-3">
+          <h6 class="text-uppercase font-weight-bold">
+            <a href="#!">Contact</a>
+          </h6>
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row-->
+      <hr class="rgba-white-light" style="margin: 0 15%;">
+  
+      <!-- Grid row-->
+      <div class="row d-flex text-center justify-content-center mb-md-0 mb-4">
+  
+        <!-- Grid column -->
+        <div class="col-md-12 col-12 mt-5">
+          <p style="line-height: 5rem">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam,
+            eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam
+            voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur.</p>
+        </div>
+        <!-- Grid column -->
+  
+      </div>
+      <!-- Grid row-->
+      <hr class="clearfix d-md-none rgba-white-light" style="margin: 10% 15% 5%;">
+  
+     
+     
+  
+    </div>
+    <!-- Footer Links -->
+  
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="https://mdbootstrap.com/"> MDBootstrap.com</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+  
+  
+ 

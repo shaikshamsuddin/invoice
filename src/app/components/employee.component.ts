@@ -48,7 +48,6 @@ export class EmployeeComponent {
       'dept',
       'DOB',
       'gender',
-      'languages',
       'Actions',
     ];
 
