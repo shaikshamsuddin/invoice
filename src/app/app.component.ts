@@ -1,5 +1,7 @@
 import { Component } from '@angular/core';
 import { Tool } from './tool';
+import{ Router } from "@angular/router";
+
 
 
 @Component({
@@ -10,6 +12,9 @@ import { Tool } from './tool';
 export class AppComponent {
     title = 'employee-management-system';
     opened=true;
+    constructor(public routes:Router){
+
+    }
 
     menuItems: Tool[] = [
       {
@@ -55,5 +60,9 @@ export class AppComponent {
         showOnDesktop: false
       },
     ];
+
+    public readItem(){
+      this.routes.navigate(['/header']);
+    }
   
 }

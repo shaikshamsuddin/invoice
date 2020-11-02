@@ -5,10 +5,10 @@ import { lazyRoutes } from './routes/app.routes';
 import { AppComponent } from './app.component';
 import  { NgHttpLoaderModule } from "ng-http-loader";
 import { MaterialModule } from './material.module';
-import { HeaderComponent } from './header/header.component';
+
  
 @NgModule({
-  declarations: [AppComponent,HeaderComponent],
+  declarations: [AppComponent],
   imports: [BrowserModule,MaterialModule, BrowserAnimationsModule, lazyRoutes,NgHttpLoaderModule.forRoot()],
   providers: [],
   bootstrap: [AppComponent],

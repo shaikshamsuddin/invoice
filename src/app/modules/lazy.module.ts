@@ -7,18 +7,22 @@ import { EmployeeService } from '../services/employee.service';
 import { AddEmployeeService } from '../services/addemployee.service';
 import { UpdateEmployeeService } from '../services/updateemployee.service';
 import { DeleteEmployeeService } from '../services/deleteemployee.service';
-import { RouterModule } from '@angular/router';
+import { RouterModule,Routes } from '@angular/router';
 import { NgHttpLoaderModule } from "ng-http-loader";
 import { ConfirmationModelComponent } from '../popups/confirmation_popup/confirmation.model';
+import { HeaderComponent } from '../header/header.component';
+import { CompanyProfileComponent } from '../company-profile/company-profile.component';
 @NgModule({
-  declarations: [EmployeeComponent,ConfirmationModelComponent],
+  declarations: [EmployeeComponent,ConfirmationModelComponent,HeaderComponent,CompanyProfileComponent],
   imports: [
     CommonModule,
     MaterialModule,
     HttpClientModule,
     NgHttpLoaderModule.forRoot(),
     RouterModule.forChild([{ path: "", component: EmployeeComponent },
-                           {path:"/xyz",component:ConfirmationModelComponent}]),
+                           {path:"/xyz",component:ConfirmationModelComponent},
+                          {path:"header",component: HeaderComponent},
+                        {path:"profile",component:CompanyProfileComponent}]),
   ],
   providers: [
     EmployeeService,

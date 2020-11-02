@@ -33,11 +33,11 @@
      <mat-sidenav-container  class="sidenav">
           <mat-sidenav [(opened)]="opened" mode="side" >
        <div class="sidenav-items">
-      <a mat-button>Home</a>
+      <a mat-button (click)="readItem()">Home</a>
     
-      <a mat-button> shopping_cart </a>
+      <a mat-button [routerLink]="['/header']"> shopping_cart </a>
       
-      <a mat-button> mail_outline</a>
+      <a mat-button [routerLink]="['/profile']"> Company-Profile</a>
       <a mat-button> Contacts</a>
       <a mat-button> Amount</a>
       <a mat-button> shopping_cart </a>
